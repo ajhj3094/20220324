@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [5, 10, 5, 2 , 21, 61, 94, 21, 45, 55, 94, 98]
+    // 找不重複
+    const filterArray = arr.filter((item, index) =>{
+      // console.log(arr.indexOf(item), index)
+      return arr.indexOf(item) === index
+    })
+    // 可省略 {} 和 return
+    const filterArray1 = arr.filter((item, index) =>
+      arr.indexOf(item) === index
+    )
+    // filter 的 callback 可以代三個值。array 是已經過 filter 處理的陣列
+    const filterArray2 = arr.filter((item, index, array) =>
+      array.indexOf(item) === index
+    )
+
+    // 找重複
+    const filterArray3 = arr.filter((item, index) =>
+      arr.indexOf(item) !== index
+    )
+    console.log(filterArray)
+    console.log(filterArray1)
+    console.log(filterArray2)
+    console.log(filterArray3)
+
+    // 排序小到大
+    let asc = filterArray.sort((a, b) => {
+      // console.log(a, b, a-b)
+      return a-b
+    })
+    console.log(asc)
+
+    // 大到小
+    let desc = filterArray.sort((a, b) =>
+      b-a
+    )
+    console.log(desc)
+
+    // 計時器
+    setTimeout(() => {
+      console.log("經過 5 秒，使用匿名函式")
+    }, 5000)
+
+    const msg = () => {
+      console.log("經過 5 秒，使用已定義好的函式")
+    }
+    setTimeout(msg, 5000)
+
+    let delay = setTimeout(() => {
+      console.log("經過 5 秒，有代入變數就能用 clearTimeout() 清除")
+    }, 5000)
+    clearTimeout(delay)
+
+    // 印出 5 次 6
+    for(var i=1;i<=5;i++) {
+      setTimeout(function() {
+        console.log(i)
+      }, 0)
+    }
+
+    // 印出 1 2 3 4 5
+    for(let i=1;i<=5;i++) {
+      setTimeout(function() {
+        console.log(i)
+      }, 0)
+    }
+  </script>
+</body>
+</html>
